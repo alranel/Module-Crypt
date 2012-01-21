@@ -7,6 +7,12 @@ WriteMakefile(
 	AUTHOR			=> 'Alessandro Ranellucci <aar@cpan.org>',
 	NAME      		=> 'Module::Crypt',
     ABSTRACT		=> 'Encrypt your Perl code and compile it into XS',
+    LICENSE         => 'perl',
+    META_MERGE      => {
+        resources => {
+            repository => 'git://github.com/alexrj/Module-Crypt.git',
+        },
+    },
 	VERSION_FROM 	=> 'Crypt.pm',
     'PREREQ_PM'		=> {
     	Carp			=> 0,
