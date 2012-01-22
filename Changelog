@@ -1,5 +1,18 @@
 $Id: Changelog 2005/09/23 20:14 $
 
+new version
+    - Refactored Perl code a little; got rid of Crypt.xs
+    - RC4 encryption is now dependent on Crypt::RC4
+    - Rewrote data generation code in Perl
+    - Added random padding before password, after password and after
+      module text; the whole data block is rounded up to 512 bytes
+    - Added ability to use arbitrary password
+    - Added password XORing in resulting shared object
+    - Added debugger check; if it's on and we're running under debugger,
+      XS code will die the flaming death
+    - Added option to run arbitrary Perl code *before* main module code
+      gets unencrypted. Additional code is also encrypted with RC4.
+
 version 0.05 (2009/09/30):
 
     - worked only on Mac, because .bundle, but not .so was moved (patch by Slaven Rezić)

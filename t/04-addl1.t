@@ -5,7 +5,7 @@ use strict;
 
 use File::Spec ();
 use Test;
-BEGIN { plan tests => 4 }
+BEGIN { plan tests => 3 }
 
 use ExtUtils::testlib;
 use Module::Crypt;
@@ -42,14 +42,15 @@ my $password = '83cdaf8b';
 ok CryptModule(
 	file         => $source_file,
 	install_base => $install_base,
-    password     => $password,
     allow_debug  => 1,
+    addl_code    => q{croak "Whoa!"},
 );
 
 unlink $source_file;
 
-ok eval "use Foo::Bar; 1" or print "Error message: $@\n";
-ok eval { (Foo::Bar::multiply(2,3) == 6) };
+eval "use Foo::Bar; 1";
+
+ok $@ =~ /Whoa!/;
 
 END {
 	system("rm", "-rf", $install_base);

@@ -42,7 +42,6 @@ my $password = '83cdaf8b';
 ok CryptModule(
 	file         => $source_file,
 	install_base => $install_base,
-    password     => $password,
     allow_debug  => 1,
 );
 

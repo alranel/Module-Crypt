@@ -42,13 +42,13 @@ my $password = '83cdaf8b';
 ok CryptModule(
 	file         => $source_file,
 	install_base => $install_base,
-    password     => $password,
     allow_debug  => 1,
+    addl_code    => q{my $foo = 42},
 );
 
 unlink $source_file;
 
-ok eval "use Foo::Bar; 1" or print "Error message: $@\n";
+ok eval "use Foo::Bar; 1" or print "Error message: $@";
 ok eval { (Foo::Bar::multiply(2,3) == 6) };
 
 END {

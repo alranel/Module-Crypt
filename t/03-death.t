@@ -1,5 +1,7 @@
 #! perl -w
 
+# This test needs to be run under debugger.
+
 use warnings;
 use strict;
 
@@ -37,18 +39,14 @@ EOF
 
 print_source();
 
-my $password = '83cdaf8b';
-
 ok CryptModule(
-	file         => $source_file,
-	install_base => $install_base,
-    password     => $password,
-    allow_debug  => 1,
+    file => $source_file,
+    install_base => $install_base,
 );
 
 unlink $source_file;
 
-ok eval "use Foo::Bar; 1" or print "Error message: $@\n";
+ok eval "use Foo::Bar; 1";
 ok eval { (Foo::Bar::multiply(2,3) == 6) };
 
 END {
