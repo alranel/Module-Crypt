@@ -1,6 +1,7 @@
 $Id: Changelog 2005/09/23 20:14 $
 
-new version
+version 0.06 (2011/01/22):
+
     - Refactored Perl code a little; got rid of Crypt.xs
     - RC4 encryption is now dependent on Crypt::RC4
     - Rewrote data generation code in Perl

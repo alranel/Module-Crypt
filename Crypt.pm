@@ -14,7 +14,7 @@ package Module::Crypt;
 
 use strict;
 use warnings;
-our $VERSION = 0.05;
+our $VERSION = 0.06;
 
 use Carp qw[croak];
 use ExtUtils::CBuilder ();
